@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼎 · 火锅文化传承</title>
+    <meta name="description" content="探索中国最早的青铜火锅 - 兽面纹双层底铜方鼎的历史与传承，了解火锅文化的发展历程。">
+    <meta name="keywords" content="兽面纹双层底铜方鼎, 青铜火锅, 火锅文化, 商代文物, 历史传承">
+    <meta name="author" content="兽面纹双层底铜方鼎展示团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="鼎 · 火锅文化传承">
+    <meta property="og:description" content="探索中国最早的青铜火锅 - 兽面纹双层底铜方鼎的历史与传承。">
+    <meta property="og:image" content="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=ancient%20bronze%20ding%20pot%20with%20tiger%20face%20pattern%2C%20minimalist%20dark%20background%2C%20museum%20quality%2C%20elegant%20lighting%2C%20artistic%20photography&image_size=landscape_21_9">
+    <meta property="og:url" content="index.html">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="index.html">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=ZCOOL+XiaoWei&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>鼎</text></svg>">
+</head>
+<body>
+    <!-- 极简导航 -->
+    <nav class="navbar-minimal">
+        <div class="nav-logo">
+            <span class="logo-text">鼎</span>
+            <!-- 音乐播放器 -->
+            <div class="music-player" id="musicPlayer">
+                <div class="music-info">
+                    <span class="music-icon" id="musicIcon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                        </svg>
+                    </span>
+                    <span class="music-name" id="musicName">选择音乐</span>
+                </div>
+                <div class="music-controls">
+                    <button class="music-btn" id="prevBtn" title="上一首">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                        </svg>
+                    </button>
+                    <button class="music-btn play-btn" id="playBtn" title="播放/暂停">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="play-icon">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="pause-icon" style="display:none;">
+                            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                        </svg>
+                    </button>
+                    <button class="music-btn" id="nextBtn" title="下一首">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="music-list" id="musicList">
+                    <div class="music-list-header">选择音乐</div>
+                    <div class="music-item" data-src="music/方颂评、无悔mix - 山海千寻.mp3">山海千寻</div>
+                    <div class="music-item" data-src="music/方颂评、无悔mix - 山海之界.mp3">山海之界</div>
+                    <div class="music-item" data-src="music/方颂评、无悔mix - 三皇五帝-淡泊自然.mp3">三皇五帝 · 淡泊自然</div>
+                    <div class="music-item" data-src="music/方颂评 - 夏商周-在祭与戎.mp3">夏商周 · 在祭与戎</div>
+                    <div class="music-item" data-src="music/方颂评、无悔mix - 春秋战国-风谲云诡.mp3">春秋战国 · 风谲云诡</div>
+                    <div class="music-item" data-src="music/方颂评 - 秦楚汉-四海群英.mp3">秦楚汉 · 四海群英</div>
+                    <div class="music-item" data-src="music/无悔mix - 大汉-西风远望.mp3">大汉 · 西风远望</div>
+                </div>
+            </div>
+        </div>
+        <ul class="nav-links-minimal">
+            <li><a href="index.html" class="active">首页</a></li>
+            <li><a href="pages/relic.html">文物</a></li>
+            <li><a href="pages/history.html">历史</a></li>
+            <li><a href="pages/interactive.html">体验</a></li>
+            <li><a href="pages/about.html">关于</a></li>
+        </ul>
+    </nav>
+
+    <!-- 隐藏的音频元素 -->
+    <audio id="audioPlayer" preload="metadata"></audio>
+
+    <!-- 全屏英雄区域 -->
+    <section class="hero-fullscreen">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content-artistic">
+            <div class="hero-subtitle reveal-text">商代晚期 · 约公元前13-前11世纪</div>
+            <h1 class="hero-title">
+                <span class="title-line">穿越</span>
+                <span class="title-line accent">3200</span>
+                <span class="title-line">年的火锅文化</span>
+            </h1>
+            <div class="hero-divider"></div>
+            <p class="hero-description reveal-up">兽面纹双层底铜方鼎<br>江西省博物馆镇馆之宝</p>
+            <div class="hero-cta">
+                <a href="pages/relic.html" class="btn-artistic">
+                    <span>探索文物</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
